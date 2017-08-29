@@ -48,3 +48,9 @@ module.exports.addUser = function(newUser , callback){
 //            newUser.save(callback);
 //        });
     };
+module.exports.comparePassword =function(CandidatePassword , hash , callback){
+        bcrypt.compare(CandidatePassword , hash , (err , isMatch)=>{
+           if(err) throw err;
+           callback(null , isMatch);
+        });
+    }
